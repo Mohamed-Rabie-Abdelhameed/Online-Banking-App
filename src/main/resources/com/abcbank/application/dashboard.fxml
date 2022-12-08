@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abcbank.application.DashboardController">
+   <left>
+      <VBox minHeight="290.0" minWidth="120.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="homeButton" alignment="TOP_CENTER" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#ShowHomePane" prefHeight="71.0" prefWidth="154.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Home" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="depositButton" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#showDepositPane" prefHeight="67.0" prefWidth="154.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Deposit" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/deposit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="withdrawButton" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#showWithdrawPane" prefHeight="70.0" prefWidth="156.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Withdraw" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/withdraw.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="transferButton" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#showTransferPane" prefHeight="75.0" prefWidth="155.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Transfer" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/Transfer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <top>
+      <HBox prefHeight="70.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="53.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logo_white.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label maxWidth="10000.0" prefHeight="140.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
+            <Button alignment="CENTER_RIGHT" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#logout" prefHeight="75.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Button" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <AnchorPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="427.0" prefWidth="546.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label fx:id="balance" layoutX="22.0" layoutY="290.0" prefHeight="26.0" prefWidth="260.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="72.0" prefHeight="38.0" prefWidth="101.0" text="Overview" wrapText="true">
+                     <font>
+                        <Font name="Calibri" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="169.0" text="Account Number : ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="207.0" text="Date of Birth : ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="251.0" text="Current Balance">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="name" layoutX="74.0" layoutY="26.0" prefHeight="27.0" prefWidth="447.0">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font></Label>
+                  <Label fx:id="accNumber" layoutX="175.0" layoutY="167.0" prefHeight="27.0" prefWidth="280.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label fx:id="dob" layoutX="135.0" layoutY="205.0" prefHeight="27.0" prefWidth="278.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label layoutX="21.0" layoutY="26.0" text="Hello, ">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="130.0" text="Email:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="emailLabel" layoutX="72.0" layoutY="128.0" prefHeight="27.0" prefWidth="285.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="depositPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="77.0" text="Please Enter The Deposited Amount Below : ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="depositAmountTextField" layoutX="14.0" layoutY="117.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="confirmDepositButton" layoutX="225.0" layoutY="304.0" mnemonicParsing="false" onAction="#confirmDeposit" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="12.0" radius="5.5" width="12.0">
+                           <color>
+                              <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                           </color>
+                        </DropShadow>
+                     </effect></Button>
+                  <Label fx:id="depositConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="189.0" prefHeight="35.0" prefWidth="478.0" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+               </children>
+            </Pane>
+            <Pane fx:id="withdrawPane" layoutX="119.0" layoutY="93.0" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="82.0" text="Please Enter The Withdrawed Amount Below : ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="withdrawAmountTextField" layoutX="14.0" layoutY="121.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="confirmWithdrawButton" layoutX="226.0" layoutY="311.0" mnemonicParsing="false" onAction="#confirmWithdraw" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow height="12.0" radius="5.5" width="12.0">
+                           <color>
+                              <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Label fx:id="withdrawConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="40.0" prefWidth="473.0" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane fx:id="transferPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="47.0" text="Please Enter The Transfered Amount Below : ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="transferAmountTextField" layoutX="14.0" layoutY="90.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="confirmTransferButton" layoutX="226.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmTransfer" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
+                           <color>
+                              <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                           </color>
+                        </DropShadow>
+                     </effect></Button>
+                  <Label layoutX="14.0" layoutY="187.0" text="Please Enter The Reciever Account Number Below : ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="recieverTextField" layoutX="14.0" layoutY="227.0" prefHeight="60.0" prefWidth="310.0" promptText="Account Number">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="transferConfirmationText" alignment="CENTER" layoutX="112.0" layoutY="362.0" prefHeight="31.0" prefWidth="322.0" textAlignment="CENTER" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+
+</BorderPane>
