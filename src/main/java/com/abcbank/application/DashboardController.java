@@ -6,8 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
+
 
 public class DashboardController implements Initializable {
 
@@ -70,7 +70,7 @@ public class DashboardController implements Initializable {
     private Label name;
 
     @FXML
-    void showDepositPane(ActionEvent event) {
+    void showDepositPane() {
         homePane.setVisible(false);
         depositPane.setVisible(true);
         withdrawPane.setVisible(false);
@@ -78,7 +78,7 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void ShowHomePane(ActionEvent event) {
+    void ShowHomePane() {
         homePane.setVisible(true);
         depositPane.setVisible(false);
         withdrawPane.setVisible(false);
@@ -87,7 +87,7 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void showTransferPane(ActionEvent event) {
+    void showTransferPane() {
         homePane.setVisible(false);
         depositPane.setVisible(false);
         withdrawPane.setVisible(false);
@@ -95,7 +95,7 @@ public class DashboardController implements Initializable {
     }
 
     @FXML
-    void showWithdrawPane(ActionEvent event) {
+    void showWithdrawPane() {
         homePane.setVisible(false);
         depositPane.setVisible(false);
         withdrawPane.setVisible(true);
@@ -108,7 +108,6 @@ public class DashboardController implements Initializable {
     
     public User currentUser = new User();
 
-    Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
 
@@ -130,6 +129,7 @@ public class DashboardController implements Initializable {
             }
             Connection conn = MySQLConnect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
+            assert conn != null;
             pst = conn.prepareStatement(sql);
             pst.setDouble(1, total);
             pst.setString(2, currentUser.getEmail());
@@ -146,7 +146,7 @@ public class DashboardController implements Initializable {
 }
 
     @FXML
-    public void confirmDeposit(ActionEvent event) throws SQLException {
+    public void confirmDeposit() {
         try{
             double amount = Double.parseDouble(depositAmountTextField.getText());
             deposit(amount);}
@@ -158,7 +158,7 @@ public class DashboardController implements Initializable {
     }
     
     
-    public void withdraw(double amount) throws SQLException {
+    public void withdraw(double amount) {
         double total = currentUser.getBalance() - amount;
         currentUser.setBalance(total);
         try{
@@ -167,6 +167,7 @@ public class DashboardController implements Initializable {
             }
             Connection conn = MySQLConnect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
+            assert conn != null;
             pst = conn.prepareStatement(sql);
             pst.setDouble(1, total);
             pst.setString(2, currentUser.getEmail());
@@ -181,7 +182,7 @@ public class DashboardController implements Initializable {
     }
 }
 
-     public void confirmWithdraw(ActionEvent event) throws SQLException {
+     public void confirmWithdraw() {
         try{
             double amount = Double.parseDouble(withdrawAmountTextField.getText());
             withdraw(amount);}
@@ -194,9 +195,13 @@ public class DashboardController implements Initializable {
      
      
     public void transfer(double amount) throws SQLException{
+        if(recieverTextField.getText().isBlank() || Objects.equals(recieverTextField.getText(), String.valueOf(currentUser.getAcc_num()))){
+            throw new IllegalArgumentException();
+        }
         int recieverAccNumber = Integer.parseInt(recieverTextField.getText());
         Connection conn = MySQLConnect.connectDB();
         String sql = "SELECT* FROM users WHERE account_number = ?";
+        assert conn != null;
         pst = conn.prepareStatement(sql);
         pst.setInt(1, recieverAccNumber);
         rs = pst.executeQuery();
@@ -211,7 +216,6 @@ public class DashboardController implements Initializable {
                 currentUser = reciever;
                 deposit(Double.parseDouble(transferAmountTextField.getText()));
                 currentUser = temp;
-                JOptionPane.showMessageDialog(null, "Transaction Under Processing, Please Wait For The Conformation Text.");
                 transferConfirmationText.setText("Transfer Succeeded!");
                 transferConfirmationText.setStyle(successStyle);
                 recieverTextField.setText("");
@@ -224,7 +228,7 @@ public class DashboardController implements Initializable {
         }
     }
     
-    public void confirmTransfer(ActionEvent event){
+    public void confirmTransfer(){
         try{
             double amount = Double.parseDouble(transferAmountTextField.getText());
             transfer(amount);}
@@ -234,12 +238,12 @@ public class DashboardController implements Initializable {
         }
     }
     
-    public void logout(ActionEvent event) throws IOException{
+    public void logout() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
+        Parent root1 = fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("ABC Bank");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("icons/icon.png")));
+        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icon.png"))));
         stage.setScene(new Scene(root1));
         stage.setResizable(false);
         stage.show();
@@ -249,6 +253,10 @@ public class DashboardController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loginController.limitTextField(recieverTextField);
+        loginController.limitTextField(depositAmountTextField);
+        loginController.limitTextField(withdrawAmountTextField);
+        loginController.limitTextField(transferAmountTextField);
         homePane.setVisible(true);
         depositPane.setVisible(false);
         withdrawPane.setVisible(false);

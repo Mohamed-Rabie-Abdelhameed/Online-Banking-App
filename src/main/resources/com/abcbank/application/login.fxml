@@ -90,38 +90,38 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="39.0" text="SignUp">
+            <Label layoutX="35.0" layoutY="19.0" text="SignUp">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="signupName" layoutX="37.0" layoutY="126.0" prefHeight="26.0" prefWidth="291.0" promptText="Enter Your Full Name" />
-            <Label layoutX="37.0" layoutY="169.0" text="Email">
+            <TextField fx:id="signupName" layoutX="35.0" layoutY="106.0" prefHeight="26.0" prefWidth="291.0" promptText="Enter Your Full Name" />
+            <Label layoutX="35.0" layoutY="149.0" text="Email">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="signupEmail" layoutX="37.0" layoutY="189.0" prefHeight="26.0" prefWidth="291.0" promptText="example@mail.com" />
-            <Label layoutX="37.0" layoutY="233.0" text="Account Number">
+            <TextField fx:id="signupEmail" layoutX="35.0" layoutY="169.0" prefHeight="26.0" prefWidth="291.0" promptText="example@mail.com" />
+            <Label layoutX="35.0" layoutY="213.0" text="Account Number">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="signupAccountNumber" layoutX="37.0" layoutY="253.0" prefHeight="26.0" prefWidth="291.0" promptText="xxxxxxxx" />
-            <Label layoutX="37.0" layoutY="293.0" text="Bate of Birth">
+            <TextField fx:id="signupAccountNumber" layoutX="35.0" layoutY="233.0" prefHeight="26.0" prefWidth="291.0" promptText="xxxxxxxx" />
+            <Label layoutX="35.0" layoutY="273.0" text="Bate of Birth">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="357.0" text="Password">
+            <Label layoutX="35.0" layoutY="337.0" text="Password">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <DatePicker fx:id="signupDOB" editable="false" layoutX="38.0" layoutY="316.0" prefHeight="26.0" prefWidth="291.0" promptText="Choose Your Birthdate" style="-fx-background-color: white;" />
-            <PasswordField fx:id="signupPassword" layoutX="37.0" layoutY="379.0" prefHeight="20.0" prefWidth="291.0" promptText="Password" />
-            <TextField fx:id="shownPassword" layoutX="38.0" layoutY="379.0" prefHeight="26.0" prefWidth="291.0" visible="false" />
-            <ToggleButton fx:id="toggleButton" blendMode="SRC_ATOP" layoutX="290.0" layoutY="379.0" minHeight="20.0" minWidth="39.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true">
+            <DatePicker fx:id="signupDOB" editable="false" layoutX="36.0" layoutY="296.0" prefHeight="26.0" prefWidth="291.0" promptText="Choose Your Birthdate" style="-fx-background-color: white;" />
+            <PasswordField fx:id="signupPassword" layoutX="35.0" layoutY="359.0" prefHeight="20.0" prefWidth="291.0" promptText="Password" />
+            <TextField fx:id="shownPassword" layoutX="36.0" layoutY="359.0" prefHeight="26.0" prefWidth="291.0" visible="false" />
+            <ToggleButton fx:id="toggleButton" blendMode="SRC_ATOP" layoutX="288.0" layoutY="359.0" minHeight="20.0" minWidth="39.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="11.0" />
                </font>
@@ -138,7 +138,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ToggleButton>
-            <Button alignment="CENTER" layoutX="38.0" layoutY="422.0" mnemonicParsing="false" onAction="#addUser" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Signup" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="37.0" layoutY="428.0" mnemonicParsing="false" onAction="#addUser" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Signup" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -153,7 +153,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button alignment="CENTER" layoutX="183.0" layoutY="422.0" mnemonicParsing="false" onAction="#showLoginPane" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Back" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="182.0" layoutY="428.0" mnemonicParsing="false" onAction="#showLoginPane" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Back" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -168,6 +168,7 @@
                   </DropShadow>
                </effect>
             </Button>
+            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" />
          </children>
       </Pane>
    </children>

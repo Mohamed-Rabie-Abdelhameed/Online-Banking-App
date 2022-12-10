@@ -9,10 +9,9 @@ import java.sql.Date;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,8 +26,8 @@ import javax.swing.JOptionPane;
 
 public class loginController implements Initializable {
     
-    private Image closedEye = new Image(getClass().getResourceAsStream("icons/eyes_closed.png"));
-    private Image openEye = new Image(getClass().getResourceAsStream("icons/eyes_open.png"));
+    private final Image closedEye = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/eyes_closed.png")));
+    private final Image openEye = new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/eyes_open.png")));
     
     @FXML
     ImageView eyesImageView;
@@ -44,7 +43,8 @@ public class loginController implements Initializable {
 
     @FXML
     private PasswordField signupPassword;
-
+    @FXML
+    private Label signupConfirmationText;
     @FXML
     private Label loginLabel;
     @FXML
@@ -69,7 +69,7 @@ public class loginController implements Initializable {
     private ToggleButton toggleButton;
    
     @FXML
-    void showPassword(ActionEvent event) {
+    void showPassword() {
         if(toggleButton.isSelected()){
             shownPassword.setVisible(true);
             eyesImageView.setImage(closedEye);
@@ -98,6 +98,7 @@ public class loginController implements Initializable {
             JOptionPane.showMessageDialog(null, "Please Check Your Internet Connection");
         }
         String sql = "Select * From users Where email = ?";
+        assert conn != null;
         pst = conn.prepareStatement(sql);
         pst.setString(1, signupEmail.getText());
         ResultSet rs = pst.executeQuery();
@@ -110,13 +111,14 @@ public class loginController implements Initializable {
             JOptionPane.showMessageDialog(null, "Please Check Your Internet Connection");
         }
         String sql = "Select * From users Where account_number = ?";
+        assert conn != null;
         pst = conn.prepareStatement(sql);
         pst.setString(1, signupAccountNumber.getText());
         ResultSet rs = pst.executeQuery();
         return rs.next();
     }
     
-    private void validateInput() throws SQLException{
+    private void validateInput()throws Exception{
         if(signupName.getText().isBlank() || (signupName.getText().length() < 10)){
             signupName.setStyle(errorStyle);
         }
@@ -134,8 +136,10 @@ public class loginController implements Initializable {
         
         if(signupPassword.getText().isBlank() || (signupPassword.getText().length() < 8)){
             signupPassword.setStyle(errorStyle);
+            throw new NullPointerException();
         }
         else{signupPassword.setStyle(successStyle);}
+
         if(signupDOB.getValue().toString().isBlank()){
             signupDOB.setStyle(errorStyle);
         }
@@ -148,13 +152,14 @@ public class loginController implements Initializable {
           stage.close();}
 
     @FXML
-    private void Login(ActionEvent event) throws Exception{
+    private void Login(){
         try{
             if(email.getText().isBlank() || loginPassword.getText().isBlank()){
                 throw new NullPointerException();
             }
             conn = MySQLConnect.connectDB();
             String sql = "Select * From users Where email = ? And password = ?";
+            assert conn != null;
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
             pst.setString(2, loginPassword.getText());
@@ -163,21 +168,19 @@ public class loginController implements Initializable {
                 closeWindow();
                 try{
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
+                    Parent root1 = fxmlLoader.load();
                     DashboardController dController = fxmlLoader.getController();
-                    User c = new User(rs.getString(2), rs.getString(3) , rs.getDate(6).toLocalDate(), rs.getInt(4), rs.getDouble(5));
-                    dController.currentUser = c;
+                    dController.currentUser = new User(rs.getString(2), rs.getString(3) , rs.getDate(6).toLocalDate(), rs.getInt(4), rs.getDouble(5));
                     dController.setLabels();
                     Stage stage = new Stage();      
                     stage.setTitle("ABC Bank");
-                    stage.getIcons().add(new Image(getClass().getResourceAsStream("icons/icon.png")));
+                    stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icon.png"))));
                     stage.setScene(new Scene(root1));
                     stage.show();
                 }
                 catch(Exception e){
                     loginLabel.setText("Connection failed, please check your internet.");
                     loginLabel.setStyle(textFillError);
-                    //JOptionPane.showMessageDialog(null, "Sorry connection failed!");
                 }
             }
             else{
@@ -185,7 +188,6 @@ public class loginController implements Initializable {
                 loginPassword.setStyle(errorStyle);
                 loginLabel.setText("Email or password is invalid!");
                 loginLabel.setStyle(textFillError);
-                //JOptionPane.showMessageDialog(null, "Email or Password Is Invalid!");
             }
         }
         catch (NullPointerException e){
@@ -197,16 +199,15 @@ public class loginController implements Initializable {
         catch(Exception e){
             loginLabel.setText("Connection failed, please check your internet.");
             loginLabel.setStyle(textFillError);
-            //JOptionPane.showMessageDialog(null, "Sorry connection failed!");
         }
     }
     
     
-    public void addUser(ActionEvent Action) throws SQLException{
+    public void addUser(){
         try{
+            validateInput();
             conn = MySQLConnect.connectDB();
             String sql = "insert into users (name, email, account_number,balance ,dob, password) values (?,?,?,?,?,?)";
-            validateInput();
             User newUser = new User(signupName.getText(), signupEmail.getText(), signupDOB.getValue(), Integer.parseInt(signupAccountNumber.getText()));
             pst = conn.prepareStatement(sql);
             pst.setString(1, newUser.getName());
@@ -220,7 +221,8 @@ public class loginController implements Initializable {
             showLoginPane();
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Please Fill In The Data Correctly!");
+            signupConfirmationText.setText("Please Fill In The Data Correctly!");
+            signupConfirmationText.setStyle(textFillError);
         }
     }
     
@@ -233,10 +235,23 @@ public class loginController implements Initializable {
         loginPane.setVisible(false);
         signUpPane.setVisible(true);
     }
-    
+
+    public static void limitTextField(TextField tf){
+        final int max = 8;
+        tf.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                tf.setText(newValue.replaceAll("\\D", ""));
+            }
+            if (tf.getText().length() > max) {
+                String s = tf.getText().substring(0, max);
+                tf.setText(s);
+            }
+        });
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        limitTextField(signupAccountNumber);
         signupDOB.setValue(LocalDate.of(2000,1,1));
         Bindings.bindBidirectional(signupPassword.textProperty(), shownPassword.textProperty());
         showLoginPane();

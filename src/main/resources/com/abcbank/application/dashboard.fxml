@@ -137,62 +137,62 @@
    <center>
       <AnchorPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="427.0" prefWidth="546.0" style="-fx-background-color: white;" visible="false">
+            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="427.0" prefWidth="546.0" style="-fx-background-color: white;">
                <children>
                   <Label fx:id="balance" layoutX="22.0" layoutY="290.0" prefHeight="26.0" prefWidth="260.0" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="22.0" layoutY="72.0" prefHeight="38.0" prefWidth="101.0" text="Overview" wrapText="true">
+                  <Label layoutX="22.0" layoutY="83.0" prefHeight="38.0" prefWidth="117.0" text="Overview" wrapText="true">
                      <font>
-                        <Font name="Calibri" size="24.0" />
+                        <Font name="Gill Sans MT Bold" size="24.0" />
                      </font>
                   </Label>
                   <Label layoutX="22.0" layoutY="169.0" text="Account Number : ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="21.0" layoutY="207.0" text="Date of Birth : ">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="251.0" text="Current Balance">
+                  <Label layoutX="21.0" layoutY="251.0" text="Current Balance" textFill="#ff9900">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Gill Sans MT" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="name" layoutX="74.0" layoutY="26.0" prefHeight="27.0" prefWidth="447.0">
+                  <Label fx:id="name" layoutX="73.0" layoutY="40.0" prefHeight="27.0" prefWidth="447.0" textFill="#ff9900">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Label>
-                  <Label fx:id="accNumber" layoutX="175.0" layoutY="167.0" prefHeight="27.0" prefWidth="280.0">
+                  <Label fx:id="accNumber" layoutX="180.0" layoutY="168.0" prefHeight="27.0" prefWidth="280.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="dob" layoutX="135.0" layoutY="205.0" prefHeight="27.0" prefWidth="278.0">
+                  <Label fx:id="dob" layoutX="143.0" layoutY="206.0" prefHeight="27.0" prefWidth="278.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label layoutX="21.0" layoutY="26.0" text="Hello, ">
+                  <Label layoutX="18.0" layoutY="40.0" text="Hello, " textFill="#ff9900">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
                   <Label layoutX="22.0" layoutY="130.0" text="Email:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="emailLabel" layoutX="72.0" layoutY="128.0" prefHeight="27.0" prefWidth="285.0">
+                  <Label fx:id="emailLabel" layoutX="73.0" layoutY="129.0" prefHeight="27.0" prefWidth="285.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="depositPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="depositPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="77.0" text="Please Enter The Deposited Amount Below : ">
                      <font>
