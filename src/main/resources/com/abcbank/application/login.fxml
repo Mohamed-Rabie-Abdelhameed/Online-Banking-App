@@ -168,7 +168,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" />
+            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" textFill="red"/>
          </children>
       </Pane>
    </children>

@@ -226,6 +226,10 @@ public class DashboardController implements Initializable {
                 transferConfirmationText.setStyle(errorStyle);
             }
         }
+        else{
+            transferConfirmationText.setText("User Not Found!");
+            transferConfirmationText.setStyle(errorStyle);
+        }
     }
     
     public void confirmTransfer(){

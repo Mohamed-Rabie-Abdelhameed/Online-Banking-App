@@ -74,6 +74,7 @@
       <element id="file-copy" path="$PROJECT_DIR$/../../../../javafx-sdk-19/bin/ucrtbase.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../javafx-sdk-19/bin/vcruntime140.dll" />
       <element id="file-copy" path="$PROJECT_DIR$/../../../../javafx-sdk-19/bin/vcruntime140_1.dll" />
+      <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.31" />
     </root>
   </artifact>
 </component>

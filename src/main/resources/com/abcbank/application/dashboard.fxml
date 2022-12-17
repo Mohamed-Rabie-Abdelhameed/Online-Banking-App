@@ -289,9 +289,6 @@
                   </TextField>
                   <Label fx:id="transferConfirmationText" alignment="CENTER" layoutX="112.0" layoutY="362.0" prefHeight="31.0" prefWidth="322.0" textAlignment="CENTER" />
                </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Pane>
          </children>
       </AnchorPane>
