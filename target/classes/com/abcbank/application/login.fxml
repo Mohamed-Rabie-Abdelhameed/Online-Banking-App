@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abcbank.application.loginController">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="350.0" styleClass="login-backgroundColor" stylesheets="@style.css">
+         <children>
+            <ImageView fitHeight="131.0" fitWidth="245.0" layoutX="53.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/logo.png" />
+               </image>
+               <effect>
+                  <ColorAdjust hue="-0.02" saturation="0.07" />
+               </effect>
+            </ImageView>
+            <Text fill="WHITE" layoutX="53.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banking Focused on " wrappingWidth="209.98306465148926">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#ffd12e" layoutX="87.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You" wrappingWidth="49.98307228088379">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane fx:id="loginPane" layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;">
+         <children>
+            <Text layoutX="55.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="152.3831272125244">
+               <font>
+                  <Font name="Calibri Bold" size="36.0" />
+               </font>
+            </Text>
+            <TextField fx:id="email" layoutX="55.0" layoutY="149.0" prefHeight="44.0" prefWidth="251.0" promptText="Email" styleClass="textfield" stylesheets="@style.css" text="mrabie@gmail.com" />
+            <PasswordField fx:id="loginPassword" layoutX="55.0" layoutY="219.0" prefHeight="44.0" prefWidth="251.0" promptText="Password" styleClass="textfield" stylesheets="@style.css" text="12345678" />
+            <Button layoutX="105.0" layoutY="306.0" mnemonicParsing="false" onAction="#Login" prefHeight="32.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
+                     <color>
+                        <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button layoutX="105.0" layoutY="354.0" mnemonicParsing="false" onAction="#showSignUPPane" prefHeight="32.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Signup" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" height="12.0" radius="5.5" width="12.0">
+                     <color>
+                        <Color red="0.3684210479259491" green="0.34658870100975037" blue="0.34658870100975037" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="loginLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="411.0" prefHeight="20.0" prefWidth="221.0" textAlignment="CENTER" />
+         </children>
+      </Pane>
+      <Pane fx:id="signUpPane" layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="37.0" layoutY="106.0" text="Name">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="19.0" text="SignUp">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="signupName" layoutX="35.0" layoutY="106.0" prefHeight="26.0" prefWidth="291.0" promptText="Enter Your Full Name" />
+            <Label layoutX="35.0" layoutY="149.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="signupEmail" layoutX="35.0" layoutY="169.0" prefHeight="26.0" prefWidth="291.0" promptText="example@mail.com" />
+            <Label layoutX="35.0" layoutY="213.0" text="Account Number">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="signupAccountNumber" layoutX="35.0" layoutY="233.0" prefHeight="26.0" prefWidth="291.0" promptText="xxxxxxxx" />
+            <Label layoutX="35.0" layoutY="273.0" text="Bate of Birth">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="337.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="signupDOB" editable="false" layoutX="36.0" layoutY="296.0" prefHeight="26.0" prefWidth="291.0" promptText="Choose Your Birthdate" style="-fx-background-color: white;" />
+            <PasswordField fx:id="signupPassword" layoutX="35.0" layoutY="359.0" prefHeight="20.0" prefWidth="291.0" promptText="Password" />
+            <TextField fx:id="shownPassword" layoutX="36.0" layoutY="359.0" prefHeight="26.0" prefWidth="291.0" visible="false" />
+            <ToggleButton fx:id="toggleButton" blendMode="SRC_ATOP" layoutX="288.0" layoutY="359.0" minHeight="20.0" minWidth="39.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <graphic>
+                  <ImageView fx:id="eyesImageView" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/eyes_open.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ToggleButton>
+            <Button alignment="CENTER" layoutX="37.0" layoutY="428.0" mnemonicParsing="false" onAction="#addUser" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Signup" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
+                     <color>
+                        <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button alignment="CENTER" layoutX="182.0" layoutY="428.0" mnemonicParsing="false" onAction="#showLoginPane" prefHeight="37.0" prefWidth="132.0" style="-fx-background-radius: 20px;" styleClass="login-button" stylesheets="@style.css" text="Back" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="12.0" radius="5.5" width="12.0">
+                     <color>
+                        <Color red="0.3686274588108063" green="0.3450980484485626" blue="0.3450980484485626" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" textFill="red"/>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

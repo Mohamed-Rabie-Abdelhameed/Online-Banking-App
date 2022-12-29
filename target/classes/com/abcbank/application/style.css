@@ -1,0 +1,15 @@
+.login-backgroundColor{
+    -fx-background-color: linear-gradient(to right bottom,#F9484A, #FBD72B);
+}
+
+.dashboard-backgroundColor{
+    -fx-background-color: #FFB229;
+}
+
+.login-button{
+    -fx-background-color: #FF8008;
+}
+
+.textfield{
+    -fx-prompt-text-fill: black;
+}
