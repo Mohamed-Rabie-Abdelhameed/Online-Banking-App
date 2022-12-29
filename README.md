@@ -9,6 +9,12 @@ A simple online banking application using javafx and MySQL
 - Transfer page (Allows the user to enter the amount to be transferred and the reciever's account number)
 - Converter Page (Allows the user to convert between currencies)
 
+## JAR File:   
+[jar](target/Application-1.0-SNAPSHOT-jar-with-dependencies.jar)     
+
+## Setup:   
+[Setup](setup)
+
 # Video
 
 https://user-images.githubusercontent.com/83073238/210013334-3715b05a-65a0-4de3-9e58-08d814f0a8a5.mp4
