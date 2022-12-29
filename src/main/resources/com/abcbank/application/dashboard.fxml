@@ -131,7 +131,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>
             </ImageView>
-            <Label maxWidth="10000.0" prefHeight="140.0" prefWidth="1000.0" HBox.hgrow="ALWAYS" />
+            <Label maxWidth="10000.0" prefHeight="140.0" prefWidth="471.0" HBox.hgrow="ALWAYS" />
             <Button alignment="CENTER_RIGHT" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#logout" prefHeight="75.0" prefWidth="115.0" style="-fx-background-color: transparent;" text="Button" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
@@ -151,9 +151,9 @@
       </HBox>
    </top>
    <center>
-      <AnchorPane prefWidth="545.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane minHeight="500.0" prefWidth="545.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="510.0" prefWidth="546.0" style="-fx-background-color: white;">
+            <Pane fx:id="homePane" layoutX="-1.0" layoutY="1.0" prefHeight="500.0" prefWidth="546.0" style="-fx-background-color: white;">
                <children>
                   <Label fx:id="balance" layoutX="19.0" layoutY="359.0" prefHeight="26.0" prefWidth="260.0" textAlignment="CENTER">
                      <font>
@@ -208,7 +208,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="depositPane" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="depositPane" prefHeight="500.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="77.0" text="Please Enter The Deposited Amount Below : ">
                      <font>
@@ -240,7 +240,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="withdrawPane" layoutX="119.0" layoutY="93.0" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="withdrawPane" layoutX="119.0" layoutY="93.0" prefHeight="500.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="82.0" text="Please Enter The Withdrawed Amount Below : ">
                      <font>
@@ -270,7 +270,7 @@
                   <Label fx:id="withdrawConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="208.0" prefHeight="40.0" prefWidth="473.0" textAlignment="CENTER" />
                </children>
             </Pane>
-            <Pane fx:id="transferPane" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="transferPane" prefHeight="500.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="81.0" text="Please Enter The Transfered Amount Below : ">
                      <font>
@@ -306,7 +306,7 @@
                   <Label fx:id="transferConfirmationText" alignment="CENTER" layoutX="112.0" layoutY="362.0" prefHeight="31.0" prefWidth="322.0" textAlignment="CENTER" />
                </children>
             </Pane>
-            <Pane fx:id="converterPane" layoutY="1.0" prefHeight="509.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false">
+            <Pane fx:id="converterPane" layoutY="1.0" prefHeight="500.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false">
                <children>
                   <ComboBox fx:id="firstCurrency" layoutX="14.0" layoutY="97.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose Currency" visibleRowCount="50" />
                   <ComboBox fx:id="secondCurrency" layoutX="309.0" layoutY="99.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose Currency" visibleRowCount="50" />
