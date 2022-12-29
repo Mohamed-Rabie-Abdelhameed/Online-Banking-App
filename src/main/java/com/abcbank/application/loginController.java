@@ -160,6 +160,7 @@ public class loginController implements Initializable {
         DashboardController dController = fxmlLoader.getController();
         dController.currentUser = c;
         dController.setLabels();
+        dController.showHomePane();
         Stage stage = new Stage();
         stage.setTitle("ABC Bank");
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icons/icon.png"))));

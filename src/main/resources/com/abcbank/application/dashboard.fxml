@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -16,11 +17,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abcbank.application.DashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.abcbank.application.DashboardController">
    <left>
-      <VBox minHeight="290.0" minWidth="120.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <VBox minHeight="290.0" minWidth="120.0" prefHeight="510.0" prefWidth="156.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="homeButton" alignment="TOP_CENTER" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#ShowHomePane" prefHeight="71.0" prefWidth="154.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Home" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="homeButton" alignment="TOP_CENTER" contentDisplay="TOP" graphicTextGap="5.0" mnemonicParsing="false" onAction="#showHomePane" prefHeight="71.0" prefWidth="154.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Home" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
@@ -95,6 +96,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button fx:id="converterButton" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5.0" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" onAction="#showConverterPane" prefHeight="75.0" prefWidth="155.0" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Converter" textAlignment="CENTER" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/converter.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
          <BorderPane.margin>
             <Insets />
@@ -135,31 +151,31 @@
       </HBox>
    </top>
    <center>
-      <AnchorPane style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane prefWidth="545.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="427.0" prefWidth="546.0" style="-fx-background-color: white;">
+            <Pane fx:id="homePane" layoutX="-2.0" prefHeight="510.0" prefWidth="546.0" style="-fx-background-color: white;">
                <children>
-                  <Label fx:id="balance" layoutX="22.0" layoutY="290.0" prefHeight="26.0" prefWidth="260.0" textAlignment="CENTER">
+                  <Label fx:id="balance" layoutX="19.0" layoutY="359.0" prefHeight="26.0" prefWidth="260.0" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="22.0" layoutY="83.0" prefHeight="38.0" prefWidth="117.0" text="Overview" wrapText="true">
+                  <Label layoutX="19.0" layoutY="107.0" prefHeight="38.0" prefWidth="117.0" text="Overview" wrapText="true">
                      <font>
                         <Font name="Gill Sans MT Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="22.0" layoutY="169.0" text="Account Number : ">
+                  <Label layoutX="19.0" layoutY="229.0" text="Account Number : ">
                      <font>
                         <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="207.0" text="Date of Birth : ">
+                  <Label layoutX="19.0" layoutY="274.0" text="Date of Birth : ">
                      <font>
                         <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="251.0" text="Current Balance" textFill="#ff9900">
+                  <Label layoutX="19.0" layoutY="320.0" text="Current Balance" textFill="#ff9900">
                      <font>
                         <Font name="Gill Sans MT" size="24.0" />
                      </font>
@@ -168,11 +184,11 @@
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Label>
-                  <Label fx:id="accNumber" layoutX="180.0" layoutY="168.0" prefHeight="27.0" prefWidth="280.0">
+                  <Label fx:id="accNumber" layoutX="177.0" layoutY="228.0" prefHeight="27.0" prefWidth="280.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="dob" layoutX="143.0" layoutY="206.0" prefHeight="27.0" prefWidth="278.0">
+                  <Label fx:id="dob" layoutX="141.0" layoutY="273.0" prefHeight="27.0" prefWidth="278.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
@@ -181,30 +197,30 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="22.0" layoutY="130.0" text="Email:">
+                  <Label layoutX="19.0" layoutY="179.0" text="Email:">
                      <font>
                         <Font name="Gill Sans MT" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="emailLabel" layoutX="73.0" layoutY="129.0" prefHeight="27.0" prefWidth="285.0">
+                  <Label fx:id="emailLabel" layoutX="70.0" layoutY="178.0" prefHeight="27.0" prefWidth="285.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="depositPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="depositPane" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="77.0" text="Please Enter The Deposited Amount Below : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="depositAmountTextField" layoutX="14.0" layoutY="117.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                  <TextField fx:id="depositAmountTextField" layoutX="14.0" layoutY="129.0" prefHeight="60.0" prefWidth="375.0" promptText="Amount">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="confirmDepositButton" layoutX="225.0" layoutY="304.0" mnemonicParsing="false" onAction="#confirmDeposit" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textFill="WHITE">
+                  <Button fx:id="confirmDepositButton" layoutX="225.0" layoutY="395.0" mnemonicParsing="false" onAction="#confirmDeposit" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -218,25 +234,25 @@
                            </color>
                         </DropShadow>
                      </effect></Button>
-                  <Label fx:id="depositConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="189.0" prefHeight="35.0" prefWidth="478.0" textAlignment="CENTER">
+                  <Label fx:id="depositConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="205.0" prefHeight="35.0" prefWidth="478.0" textAlignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font></Label>
                </children>
             </Pane>
-            <Pane fx:id="withdrawPane" layoutX="119.0" layoutY="93.0" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="withdrawPane" layoutX="119.0" layoutY="93.0" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="82.0" text="Please Enter The Withdrawed Amount Below : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="withdrawAmountTextField" layoutX="14.0" layoutY="121.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                  <TextField fx:id="withdrawAmountTextField" layoutX="14.0" layoutY="126.0" prefHeight="60.0" prefWidth="388.0" promptText="Amount">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="confirmWithdrawButton" layoutX="226.0" layoutY="311.0" mnemonicParsing="false" onAction="#confirmWithdraw" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="confirmWithdrawButton" layoutX="225.0" layoutY="395.0" mnemonicParsing="false" onAction="#confirmWithdraw" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -251,22 +267,22 @@
                         </DropShadow>
                      </effect>
                   </Button>
-                  <Label fx:id="withdrawConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="194.0" prefHeight="40.0" prefWidth="473.0" textAlignment="CENTER" />
+                  <Label fx:id="withdrawConfirmationText" alignment="CENTER" layoutX="14.0" layoutY="208.0" prefHeight="40.0" prefWidth="473.0" textAlignment="CENTER" />
                </children>
             </Pane>
-            <Pane fx:id="transferPane" prefHeight="427.2" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="transferPane" prefHeight="510.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="14.0" layoutY="47.0" text="Please Enter The Transfered Amount Below : ">
+                  <Label layoutX="14.0" layoutY="81.0" text="Please Enter The Transfered Amount Below : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="transferAmountTextField" layoutX="14.0" layoutY="90.0" prefHeight="60.0" prefWidth="310.0" promptText="Amount">
+                  <TextField fx:id="transferAmountTextField" layoutX="16.0" layoutY="122.0" prefHeight="60.0" prefWidth="376.0" promptText="Amount">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="confirmTransferButton" layoutX="226.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmTransfer" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="confirmTransferButton" layoutX="225.0" layoutY="403.0" mnemonicParsing="false" onAction="#confirmTransfer" prefHeight="38.0" prefWidth="95.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Confirm" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -277,17 +293,69 @@
                            </color>
                         </DropShadow>
                      </effect></Button>
-                  <Label layoutX="14.0" layoutY="187.0" text="Please Enter The Reciever Account Number Below : ">
+                  <Label layoutX="14.0" layoutY="229.0" text="Please Enter The Reciever Account Number Below : ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="recieverTextField" layoutX="14.0" layoutY="227.0" prefHeight="60.0" prefWidth="310.0" promptText="Account Number">
+                  <TextField fx:id="recieverTextField" layoutX="16.0" layoutY="268.0" prefHeight="60.0" prefWidth="433.0" promptText="Account Number">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextField>
                   <Label fx:id="transferConfirmationText" alignment="CENTER" layoutX="112.0" layoutY="362.0" prefHeight="31.0" prefWidth="322.0" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane fx:id="converterPane" layoutY="1.0" prefHeight="509.0" prefWidth="544.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <ComboBox fx:id="firstCurrency" layoutX="14.0" layoutY="97.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose Currency" visibleRowCount="50" />
+                  <ComboBox fx:id="secondCurrency" layoutX="309.0" layoutY="99.0" prefHeight="35.0" prefWidth="200.0" promptText="Choose Currency" visibleRowCount="50" />
+                  <Label layoutX="14.0" layoutY="55.0" text="From">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="309.0" layoutY="57.0" text="To">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="174.0" text="Amount">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="278.0" text="Result">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="resultAmount" editable="false" layoutX="14.0" layoutY="313.0" prefHeight="47.0" prefWidth="496.0" />
+                  <TextField fx:id="convertAmount" layoutX="14.0" layoutY="217.0" prefHeight="47.0" prefWidth="496.0" />
+                  <Button fx:id="swapButton" contentDisplay="GRAPHIC_ONLY" graphicTextGap="0.0" layoutX="233.0" layoutY="89.0" mnemonicParsing="false" onAction="#swap" prefHeight="18.0" prefWidth="25.0" style="-fx-background-color: transparent;" text="Button">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/swap.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="resetButton" layoutX="114.0" layoutY="413.0" mnemonicParsing="false" onAction="#resetConverter" prefHeight="40.0" prefWidth="120.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="convertButton" layoutX="323.0" layoutY="413.0" mnemonicParsing="false" onAction="#convertButtonAction" prefWidth="120.0" style="-fx-background-radius: 15px;" styleClass="dashboard-backgroundColor" stylesheets="@style.css" text="Convert" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="converterLabel" alignment="CENTER" layoutX="14.0" layoutY="375.0" prefHeight="17.0" prefWidth="495.0" textFill="RED">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>
