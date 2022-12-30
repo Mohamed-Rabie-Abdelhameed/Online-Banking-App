@@ -195,7 +195,7 @@ public class DashboardController implements Initializable {
         name.setText(currentUser.getName());
         dob.setText(currentUser.getDob().toString());
         accNumber.setText(Integer.toString(currentUser.getAcc_num()));
-        balance.setText(Double.toString(currentUser.getBalance()));
+        balance.setText(String.format("%.2f",currentUser.getBalance()) +"$");
         emailLabel.setText(currentUser.getEmail());
     }
 
@@ -207,7 +207,7 @@ public class DashboardController implements Initializable {
             if(amount<= 0.0){
                 throw new IllegalArgumentException();
             }
-            Connection conn = MySQLConnect.connectDB();
+            Connection conn = Connect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
             assert conn != null;
             pst = conn.prepareStatement(sql);
@@ -245,7 +245,7 @@ public class DashboardController implements Initializable {
             if(((currentUser.getBalance() - amount) < 0.0)  || (amount <= 0)){
                 throw new IllegalArgumentException();
             }
-            Connection conn = MySQLConnect.connectDB();
+            Connection conn = Connect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
             assert conn != null;
             pst = conn.prepareStatement(sql);
@@ -279,7 +279,7 @@ public class DashboardController implements Initializable {
             throw new IllegalArgumentException();
         }
         int recieverAccNumber = Integer.parseInt(recieverTextField.getText());
-        Connection conn = MySQLConnect.connectDB();
+        Connection conn = Connect.connectDB();
         String sql = "SELECT* FROM users WHERE account_number = ?";
         assert conn != null;
         pst = conn.prepareStatement(sql);
@@ -344,7 +344,7 @@ public class DashboardController implements Initializable {
     }
 
 
-    public double convert(String from, String to, double amount) throws MalformedURLException, IOException {
+    public double convert(String from, String to, double amount) throws IOException {
         double result;
         String url_str = "https://api.exchangerate.host/convert?from=" + from + "&to=" + to;
         URL url = new URL(url_str);

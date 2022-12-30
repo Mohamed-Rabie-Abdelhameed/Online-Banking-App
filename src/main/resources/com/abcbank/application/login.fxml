@@ -39,6 +39,11 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
+            <ImageView fitHeight="276.0" fitWidth="297.0" layoutX="39.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/bank.gif" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane fx:id="loginPane" layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;">
@@ -81,9 +86,19 @@
                </effect>
             </Button>
             <Label fx:id="loginLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="411.0" prefHeight="20.0" prefWidth="221.0" textAlignment="CENTER" />
+            <TextField fx:id="shownLoginPassword" layoutX="55.0" layoutY="219.0" prefHeight="44.0" prefWidth="251.0" promptText="Password" text="12345678" visible="false" />
+            <ToggleButton fx:id="loginToggleButton" layoutX="257.0" layoutY="219.0" mnemonicParsing="false" onAction="#showLoginPassword" prefHeight="44.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/view.gif" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
          </children>
       </Pane>
-      <Pane fx:id="signUpPane" layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;">
+      <Pane fx:id="signUpPane" layoutX="350.0" prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: white;" visible="false">
          <children>
             <Label layoutX="37.0" layoutY="106.0" text="Name">
                <font>
@@ -119,20 +134,21 @@
                </font>
             </Label>
             <DatePicker fx:id="signupDOB" editable="false" layoutX="36.0" layoutY="296.0" prefHeight="26.0" prefWidth="291.0" promptText="Choose Your Birthdate" style="-fx-background-color: white;" />
-            <PasswordField fx:id="signupPassword" layoutX="35.0" layoutY="359.0" prefHeight="20.0" prefWidth="291.0" promptText="Password" />
-            <TextField fx:id="shownPassword" layoutX="36.0" layoutY="359.0" prefHeight="26.0" prefWidth="291.0" visible="false" />
-            <ToggleButton fx:id="toggleButton" blendMode="SRC_ATOP" layoutX="288.0" layoutY="359.0" minHeight="20.0" minWidth="39.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="25.0" prefWidth="39.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true">
+            <PasswordField fx:id="signupPassword" layoutX="36.0" layoutY="359.0" prefHeight="34.0" prefWidth="291.0" promptText="Password" />
+            <TextField fx:id="shownPassword" layoutX="36.0" layoutY="359.0" prefHeight="34.0" prefWidth="291.0" promptText="Password" visible="false" />
+            <ToggleButton fx:id="toggleButton" blendMode="SRC_ATOP" layoutX="284.0" layoutY="361.0" minHeight="20.0" minWidth="39.0" mnemonicParsing="false" onAction="#showPassword" prefHeight="30.0" prefWidth="35.0" style="-fx-background-color: transparent;" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="11.0" />
                </font>
                <graphic>
-                  <ImageView fx:id="eyesImageView" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="eyesImageView" fitHeight="32.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/eyes_open.png" />
+                        <Image url="@icons/view.gif" />
                      </image>
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ImageView>
+                     </cursor>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -168,7 +184,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" textFill="red"/>
+            <Label fx:id="signupConfirmationText" alignment="CENTER" layoutX="64.0" layoutY="395.0" prefHeight="17.0" prefWidth="234.0" textFill="red" />
          </children>
       </Pane>
    </children>

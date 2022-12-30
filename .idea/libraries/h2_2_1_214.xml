@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="h2-2.1.214">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/com/abcbank/application/db/h2-2.1.214.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
