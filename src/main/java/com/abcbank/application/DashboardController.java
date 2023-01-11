@@ -133,9 +133,6 @@ public class DashboardController implements Initializable {
     private Pane withdrawPane;
 
 
-
-
-
     @FXML
     void showDepositPane() {
         homePane.setVisible(false);
@@ -207,7 +204,7 @@ public class DashboardController implements Initializable {
             if(amount<= 0.0){
                 throw new IllegalArgumentException();
             }
-            Connection conn = Connect.connectDB();
+            Connection conn = MySQLConnect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
             assert conn != null;
             pst = conn.prepareStatement(sql);
@@ -239,13 +236,13 @@ public class DashboardController implements Initializable {
     
     
     public void withdraw(double amount) {
+        if(((currentUser.getBalance() - amount) < 0.0)  || (amount <= 0)){
+            throw new IllegalArgumentException();
+        }
         double total = currentUser.getBalance() - amount;
         currentUser.setBalance(total);
         try{
-            if(((currentUser.getBalance() - amount) < 0.0)  || (amount <= 0)){
-                throw new IllegalArgumentException();
-            }
-            Connection conn = Connect.connectDB();
+            Connection conn = MySQLConnect.connectDB();
             String sql = "UPDATE users SET balance = ? Where email = ?";
             assert conn != null;
             pst = conn.prepareStatement(sql);
@@ -259,7 +256,7 @@ public class DashboardController implements Initializable {
             withdrawConfirmationText.setText("Sorry, Your Balance is Too Low");
             withdrawConfirmationText.setStyle(errorStyle);
             withdrawAmountTextField.setText("");
-    }
+        }
 }
 
      public void confirmWithdraw() {
@@ -267,7 +264,12 @@ public class DashboardController implements Initializable {
             double amount = Double.parseDouble(withdrawAmountTextField.getText());
             withdraw(amount);}
         catch(Exception e){
-            withdrawConfirmationText.setText("Please Enter a Numeric Value");
+            if(e instanceof IllegalArgumentException){
+                withdrawConfirmationText.setText("Sorry Your Balance is Too Low");
+            }
+            else{
+                withdrawConfirmationText.setText("Please Enter a Numeric Value");
+            }
             withdrawConfirmationText.setStyle(errorStyle);
             withdrawAmountTextField.setText("");
         }
@@ -279,7 +281,7 @@ public class DashboardController implements Initializable {
             throw new IllegalArgumentException();
         }
         int recieverAccNumber = Integer.parseInt(recieverTextField.getText());
-        Connection conn = Connect.connectDB();
+        Connection conn = MySQLConnect.connectDB();
         String sql = "SELECT* FROM users WHERE account_number = ?";
         assert conn != null;
         pst = conn.prepareStatement(sql);

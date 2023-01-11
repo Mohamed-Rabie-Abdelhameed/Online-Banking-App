@@ -101,7 +101,7 @@ public class loginController implements Initializable {
     String textFillError = "-fx-text-fill: RED";
     
     private boolean emailAlreadyExists() throws SQLException{
-        conn = Connect.connectDB();
+        conn = MySQLConnect.connectDB();
         String sql = "Select * From users Where email = ?";
         assert conn != null;
         pst = conn.prepareStatement(sql);
@@ -110,7 +110,7 @@ public class loginController implements Initializable {
         return rs.next();
     }
     private boolean accountNumberAlreadyExists() throws SQLException{
-        conn = Connect.connectDB();
+        conn = MySQLConnect.connectDB();
         String sql = "Select * From users Where account_number = ?";
         assert conn != null;
         pst = conn.prepareStatement(sql);
@@ -180,7 +180,7 @@ public class loginController implements Initializable {
             return;}
         String sql = "Select * From users Where email = ? And password = ?";
         try{
-            conn = Connect.connectDB();
+            conn = MySQLConnect.connectDB();
             assert conn != null;
             pst = conn.prepareStatement(sql);
             pst.setString(1, email.getText());
@@ -198,6 +198,7 @@ public class loginController implements Initializable {
             }
         }
         catch(Exception e){
+            e.printStackTrace();
             loginLabel.setText("Connection failed, please check your internet.");
             loginLabel.setStyle(textFillError);
         }
@@ -210,7 +211,7 @@ public class loginController implements Initializable {
             if(isValid()){
                 String sql = "insert into users (name, email, account_number,balance ,dob, password) values (?,?,?,?,?,?)";
                 User newUser = new User(signupName.getText(), signupEmail.getText(), signupDOB.getValue(), Integer.parseInt(signupAccountNumber.getText()));
-                conn = Connect.connectDB();
+                conn = MySQLConnect.connectDB();
                 assert conn != null;
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, newUser.getName());
